@@ -42,6 +42,7 @@ public class Driver {
 						game.createValidGuess(guess); // check for valid guess
 						game.checkBlackPegs(); // check for black pegs
 						game.checkWhitePegs(); // check for white pegs
+						System.out.println(game.getAnswer());
 						System.out.println("Previous guesses: ");
 						// create loop to print previous guesses with pegs
 						for (int i = 0; i < game.getGuessList().size(); i++) {
@@ -49,9 +50,8 @@ public class Driver {
 							+ " White pegs: " + game.getWhitePegList().get(i) + "\n");
 						}
 
-						if (game.getBlackPegs() == 4) { // user has won
-							int score = 10 - game.getGuessNumber();
-							System.out.println("Congrats! You won! Your final score is " + score);
+						if (game.isWinner()) { // user has won
+							System.out.println("Congrats! You won! Your final score is " + game.getScore());
 							break;
 						} else if (game.getGuessNumber() == 10) { // user has lost
 							System.out.println("End of Game: You lost \nThe solution was " + game.getAnswer());

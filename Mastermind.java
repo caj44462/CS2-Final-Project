@@ -52,7 +52,7 @@ public class Mastermind {
 		answer = new String();
 		nonBlackPegAnswer = "";
 		nonBlackPegGuess = "";
-		guessNumber = 0;
+		guessNumber = 1;
 		blackPegs = 0;
 		whitePegs = 0;
 		guessList = new ArrayList<String>();
@@ -105,28 +105,29 @@ public class Mastermind {
 	public void createAnswer() {
 		//answer is 4 chars long
 		for (int i = 0; i < 4; i++) {
+			char [] colorArray = new char[] {'R','B','G','Y','O','P'};
 			Random r = new Random();
 			int c = (r.nextInt(6));
-			//now check individually what the number is, and correspond it to the right color
-			if (c == 0) {
-				char red = 'R';
-				answer = answer + red;
-			} else if (c == 1) {
-				char blue = 'B';
-				answer = answer + blue;
-			} else if (c == 2) {
-				char green = 'G';
-				answer = answer + green;
-			} else if (c == 3) {
-				char yellow = 'Y';
-				answer = answer + yellow;
-			} else if (c == 4) {
-				char orange = 'O';
-				answer = answer + orange;
-			} else if (c == 5) {
-				char purple = 'P';
-				answer = answer + purple;
-			}
+			answer = answer + colorArray[c];
+//			if (c == 0) {
+//				char red = 'R';
+//				answer = answer + red;
+//			} else if (c == 1) {
+//				char blue = 'B';
+//				answer = answer + blue;
+//			} else if (c == 2) {
+//				char green = 'G';
+//				answer = answer + green;
+//			} else if (c == 3) {
+//				char yellow = 'Y';
+//				answer = answer + yellow;
+//			} else if (c == 4) {
+//				char orange = 'O';
+//				answer = answer + orange;
+//			} else if (c == 5) {
+//				char purple = 'P';
+//				answer = answer + purple;
+//			}
 		}
 	}
 	/**
@@ -201,6 +202,17 @@ public class Mastermind {
 		//add white pegs number to our list
 		whitePegList.add(whitePegs);
 	}
+	/**
+	 * Method that determines is user has won or not
+	 * @return true if won, false otherwise
+	 */
+	public boolean isWinner() {
+		if  (blackPegs == 4) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 	
 	/**
 	 * This method simply resets all guess variables 
@@ -233,7 +245,7 @@ public class Mastermind {
 	 * @return guess number
 	 */
 	public int getGuessNumber() {
-		return guessNumber+1;
+		return guessNumber;
 	}
 	/**
 	 * getter method for black pegs
@@ -269,5 +281,12 @@ public class Mastermind {
 	 */
 	public ArrayList<String> getGuessList() {
 		return guessList;
+	}
+	/**
+	 * getter method for score
+	 * @return score of game if user wins
+	 */
+	public int getScore() {
+		return 10 - guessNumber;
 	}
 }
