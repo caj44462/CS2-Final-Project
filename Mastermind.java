@@ -183,20 +183,12 @@ public class Mastermind {
 						nonBlackPegAnswer = tempNewAnswer;
 						nonBlackPegGuess = tempNewGuess;
 						k = nonBlackPegAnswer.length();
+						j = 0;
 				}
 				}
 			}else {
 				//otherwise, currentChar is not in the answer, so iterate 
 				j++;
-			}
-			//special case check if length is 1 and are white pegs
-			if (nonBlackPegGuess.length() == 1 && nonBlackPegAnswer.length() == 1) {
-				if (nonBlackPegGuess.equals(nonBlackPegAnswer)) {
-					//add to white pegs
-					whitePegs++;
-				}
-				//end loop
-				j = 10;
 			}
 		}
 		//add white pegs number to our list

@@ -42,7 +42,6 @@ public class Driver {
 						game.createValidGuess(guess); // check for valid guess
 						game.checkBlackPegs(); // check for black pegs
 						game.checkWhitePegs(); // check for white pegs
-						System.out.println(game.getAnswer());
 						System.out.println("Previous guesses: ");
 						// create loop to print previous guesses with pegs
 						for (int i = 0; i < game.getGuessList().size(); i++) {
