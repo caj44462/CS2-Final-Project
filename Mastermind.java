@@ -109,25 +109,6 @@ public class Mastermind {
 			Random r = new Random();
 			int c = (r.nextInt(6));
 			answer = answer + colorArray[c];
-//			if (c == 0) {
-//				char red = 'R';
-//				answer = answer + red;
-//			} else if (c == 1) {
-//				char blue = 'B';
-//				answer = answer + blue;
-//			} else if (c == 2) {
-//				char green = 'G';
-//				answer = answer + green;
-//			} else if (c == 3) {
-//				char yellow = 'Y';
-//				answer = answer + yellow;
-//			} else if (c == 4) {
-//				char orange = 'O';
-//				answer = answer + orange;
-//			} else if (c == 5) {
-//				char purple = 'P';
-//				answer = answer + purple;
-//			}
 		}
 	}
 	/**
